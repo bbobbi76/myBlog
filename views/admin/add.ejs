@@ -1,14 +1,39 @@
-<a href="/allPosts">&larr; 뒤로</a>
+<a href="/allMatches">&larr; Back to Dashboard</a>
 <div class="admin-title">
   <h2><%= locals.title %></h2>
 </div>
 
 <form action="/add" method="POST">
-  <label for="title"><b>제목</b></label>
-  <input type="text" placeholder="게시물 제목" name="title" id="title">
-  
-  <label for="body"><b>내용</b></label>
-  <textarea placeholder="게시물 내용" name="body" cols="50" rows="10"></textarea>
+  <label for="stage"><b>Stage (e.g., League Phase - Matchday 1)</b></label>
+  <input type="text" placeholder="Stage" name="stage" id="stage" required>
 
-  <input type="submit" value="등록" class="btn">
+  <label for="matchDate"><b>Match Date</b></label>
+  <input type="date" name="matchDate" id="matchDate" required>
+
+  <div style="display: flex; gap: 20px;">
+    <div style="flex: 1;">
+      <label for="homeTeam"><b>Home Team</b></label>
+      <input type="text" placeholder="Home Team" name="homeTeam" id="homeTeam" required>
+    </div>
+    <div style="flex: 1;">
+      <label for="homeScore"><b>Home Score</b></label>
+      <input type="number" placeholder="Score (Leave empty if not played)" name="homeScore" id="homeScore">
+    </div>
+  </div>
+
+  <div style="display: flex; gap: 20px;">
+    <div style="flex: 1;">
+      <label for="awayTeam"><b>Away Team</b></label>
+      <input type="text" placeholder="Away Team" name="awayTeam" id="awayTeam" required>
+    </div>
+    <div style="flex: 1;">
+      <label for="awayScore"><b>Away Score</b></label>
+      <input type="number" placeholder="Score (Leave empty if not played)" name="awayScore" id="awayScore">
+    </div>
+  </div>
+  
+  <label for="description"><b>Description / Highlights</b></label>
+  <textarea placeholder="Match summary or notes" name="description" cols="50" rows="5"></textarea>
+
+  <input type="submit" value="Add Match" class="btn">
 </form>

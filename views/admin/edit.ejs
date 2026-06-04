@@ -1,17 +1,43 @@
-<a href="/allPosts">&larr; 뒤로</a>
+<a href="/allMatches">&larr; Back to Dashboard</a>
 <div class="admin-title">
   <h2><%= locals.title %></h2>
-  <form action="/delete/<%= data._id %>?_method=DELETE" method="POST">
-    <input type="submit" value="삭제" class="btn-delete btn">
-  </form>
 </div>
 
 <form action="/edit/<%= data._id %>?_method=PUT" method="POST">
-  <label for="title"><b>제목</b></label>
-  <input type="text" name="title" id="title" value="<%= data.title %>">
-  
-  <label for="body"><b>Content</b></label>
-  <textarea name="body" id="body" cols="50" rows="10"><%= data.body %></textarea>
+  <label for="stage"><b>Stage (e.g., League Phase - Matchday 1)</b></label>
+  <input type="text" placeholder="Stage" name="stage" id="stage" value="<%= data.stage %>" required>
 
-  <input type="submit" value="수정" class="btn">
+  <label for="matchDate"><b>Match Date</b></label>
+  <input type="date" name="matchDate" id="matchDate" value="<%= data.matchDate ? data.matchDate.toISOString().split('T')[0] : '' %>" required>
+
+  <div style="display: flex; gap: 20px;">
+    <div style="flex: 1;">
+      <label for="homeTeam"><b>Home Team</b></label>
+      <input type="text" placeholder="Home Team" name="homeTeam" id="homeTeam" value="<%= data.homeTeam %>" required>
+    </div>
+    <div style="flex: 1;">
+      <label for="homeScore"><b>Home Score</b></label>
+      <input type="number" placeholder="Score" name="homeScore" id="homeScore" value="<%= data.homeScore !== null ? data.homeScore : '' %>">
+    </div>
+  </div>
+
+  <div style="display: flex; gap: 20px;">
+    <div style="flex: 1;">
+      <label for="awayTeam"><b>Away Team</b></label>
+      <input type="text" placeholder="Away Team" name="awayTeam" id="awayTeam" value="<%= data.awayTeam %>" required>
+    </div>
+    <div style="flex: 1;">
+      <label for="awayScore"><b>Away Score</b></label>
+      <input type="number" placeholder="Score" name="awayScore" id="awayScore" value="<%= data.awayScore !== null ? data.awayScore : '' %>">
+    </div>
+  </div>
+  
+  <label for="description"><b>Description / Highlights</b></label>
+  <textarea placeholder="Match summary or notes" name="description" cols="50" rows="5"><%= data.description %></textarea>
+
+  <input type="submit" value="Update Match" class="btn">
+</form>
+
+<form action="/delete/<%= data._id %>?_method=DELETE" method="POST" style="margin-top: 20px;">
+  <input type="submit" value="Delete Match" class="btn-delete btn">
 </form>

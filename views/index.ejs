@@ -1,22 +1,25 @@
-      <!-- 상단 소개글, 히어로 이미지 -->
-      <div class="top">
-        <h1 class="top-heading">오늘도 열심히 공부하자!!!</h1>
-        <p class="top-body">매일 1시간씩 공부한 내용을 기록하고 있습니다.</p>
-      </div>
+<!-- 상단 소개글 -->
+<div class="top">
+  <h1 class="top-heading">UEFA Champions League 24/25</h1>
+  <p class="top-body">Explore the latest match results and upcoming fixtures.</p>
+</div>
 
-      <img src="/img/top-hero.jpg" alt="노트에 기록하는 모습" class="hero-image" width="840" height="400">
-
-      <!-- 최근 게시물 -->
-      <section class="articles">
-        <h2 class="articles-heading">최근 게시물</h2>
-        <ul class="article-ul">
-          <% data.forEach(post => { %>
-            <li>
-              <a href="/post/<%= post._id %>">
-                <span><%= post.title %></span>
-                <span class="article-list-date"><%= post.createdAt.toDateString() %></span>
-              </a>
-            </li>
-            <% }) %>
-        </ul>
-      </section>
+<!-- 최근 경기 -->
+<section class="articles">
+  <h2 class="articles-heading">Matches</h2>
+  <div class="match-grid">
+    <% data.forEach(match => { %>
+      <a href="/match/<%= match._id %>" class="match-card">
+        <div class="match-stage"><%= match.stage %></div>
+        <div class="match-teams">
+          <span><%= match.homeTeam %></span>
+          <span class="match-score">
+            <%= match.homeScore !== null ? match.homeScore : '-' %> : <%= match.awayScore !== null ? match.awayScore : '-' %>
+          </span>
+          <span><%= match.awayTeam %></span>
+        </div>
+        <div class="match-date"><%= match.matchDate ? match.matchDate.toLocaleDateString() : '' %></div>
+      </a>
+    <% }) %>
+  </div>
+</section>

@@ -1,0 +1,30 @@
+<a href="/home">&larr; Back to Matches</a>
+
+<div class="match-detail">
+  <div class="match-stage" style="font-size: 1.2rem; margin-top: 20px;"><%= data.stage %></div>
+  
+  <div style="display: flex; justify-content: center; align-items: center; gap: 40px; margin: 40px 0; background: var(--card-bg); padding: 40px; border-radius: var(--border-radius); border: 1px solid var(--glass-border);">
+    <div style="text-align: center; flex: 1;">
+      <h2 style="font-size: 2.5rem; margin-bottom: 0;"><%= data.homeTeam %></h2>
+      <div style="color: var(--text-secondary); margin-top: 10px;">HOME</div>
+    </div>
+    
+    <div style="font-size: 4rem; font-weight: 800; background: rgba(0,0,0,0.5); padding: 10px 30px; border-radius: 16px;">
+      <%= data.homeScore !== null ? data.homeScore : '-' %> : <%= data.awayScore !== null ? data.awayScore : '-' %>
+    </div>
+    
+    <div style="text-align: center; flex: 1;">
+      <h2 style="font-size: 2.5rem; margin-bottom: 0;"><%= data.awayTeam %></h2>
+      <div style="color: var(--text-secondary); margin-top: 10px;">AWAY</div>
+    </div>
+  </div>
+
+  <div style="text-align: center; margin-bottom: 30px; font-size: 1.1rem; color: var(--text-secondary);">
+    Date: <%= data.matchDate ? data.matchDate.toLocaleDateString() : 'TBD' %>
+  </div>
+
+  <div style="background: rgba(0,0,0,0.2); padding: 30px; border-radius: var(--border-radius); line-height: 1.6; font-size: 1.1rem;">
+    <h3>Match Highlights & Notes</h3>
+    <p style="white-space: pre-wrap;"><%= data.description || 'No description available for this match.' %></p>
+  </div>
+</div>

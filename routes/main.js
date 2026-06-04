@@ -1,30 +1,30 @@
 const express = require("express");
 const router = express.Router();
 const mainLayout = "../views/layouts/main.ejs";
-const Post = require("../models/Post");
+const Match = require("../models/Match");
 const asynchandler = require("express-async-handler");
 
 router.get(
   ["/", "/home"],
   asynchandler(async (req, res) => {
     const locals = {
-      title: "Home",
+      title: "Champions League Matches",
     };
 
-    const data = await Post.find({});
+    const data = await Match.find({}).sort({ matchDate: 1 });
     res.render("index", { locals, data, layout: mainLayout });
   })
 );
 
 /**
- * GET post/:id
- * 게시물 상세 보기
+ * GET match/:id
+ * Match details
  */
 router.get(
-  "/post/:id",
+  "/match/:id",
   asynchandler(async (req, res) => {
-    const data = await Post.findOne({ _id: req.params.id });
-    res.render("post", { data, layout: mainLayout });
+    const data = await Match.findOne({ _id: req.params.id });
+    res.render("match", { data, layout: mainLayout });
   })
 );
 
