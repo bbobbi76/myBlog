@@ -8,7 +8,7 @@ router.get(
   ["/", "/home"],
   asynchandler(async (req, res) => {
     const locals = {
-      title: "챔피언스리그 경기 결과",
+      title: "2026 북중미 월드컵 경기 기록",
     };
 
     const data = await Match.find({}).sort({ matchDate: 1 });

@@ -81,7 +81,7 @@ router.get(
   checkLogin,
   asyncHandler(async (req, res) => {
     const locals = {
-      title: "챔피언스리그 경기 관리",
+      title: "2026 북중미 월드컵 경기 관리",
     };
     const data = await Match.find().sort({ matchDate: 1 });
     res.render("admin/allPosts", {
