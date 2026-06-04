@@ -35,6 +35,16 @@ const checkLogin = (req, res, next) => {
 router.get(
   "/admin",
   asyncHandler(async (req, res) => {
+    const token = req.cookies.token;
+    if (token) {
+      try {
+        jwt.verify(token, jwtSecret);
+        return res.redirect("/allMatches");
+      } catch (error) {
+        // Token is invalid, render login page
+      }
+    }
+
     const locals = {
       title: "관리자 페이지",
     };
