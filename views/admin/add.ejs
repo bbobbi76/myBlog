@@ -1,39 +1,39 @@
-<a href="/allMatches">&larr; Back to Dashboard</a>
+<a href="/allMatches">&larr; 대시보드로 돌아가기</a>
 <div class="admin-title">
   <h2><%= locals.title %></h2>
 </div>
 
 <form action="/add" method="POST">
-  <label for="stage"><b>Stage (e.g., League Phase - Matchday 1)</b></label>
-  <input type="text" placeholder="Stage" name="stage" id="stage" required>
+  <label for="stage"><b>경기 단계 (예: 리그 페이즈 - 1차전)</b></label>
+  <input type="text" placeholder="단계 입력" name="stage" id="stage" required>
 
-  <label for="matchDate"><b>Match Date</b></label>
+  <label for="matchDate"><b>경기 날짜</b></label>
   <input type="date" name="matchDate" id="matchDate" required>
 
   <div style="display: flex; gap: 20px;">
     <div style="flex: 1;">
-      <label for="homeTeam"><b>Home Team</b></label>
-      <input type="text" placeholder="Home Team" name="homeTeam" id="homeTeam" required>
+      <label for="homeTeam"><b>홈 팀</b></label>
+      <input type="text" placeholder="홈 팀 이름" name="homeTeam" id="homeTeam" required>
     </div>
     <div style="flex: 1;">
-      <label for="homeScore"><b>Home Score</b></label>
-      <input type="number" placeholder="Score (Leave empty if not played)" name="homeScore" id="homeScore">
+      <label for="homeScore"><b>홈 팀 점수</b></label>
+      <input type="number" placeholder="점수 (아직 경기를 안했다면 비워두세요)" name="homeScore" id="homeScore">
     </div>
   </div>
 
   <div style="display: flex; gap: 20px;">
     <div style="flex: 1;">
-      <label for="awayTeam"><b>Away Team</b></label>
-      <input type="text" placeholder="Away Team" name="awayTeam" id="awayTeam" required>
+      <label for="awayTeam"><b>원정 팀</b></label>
+      <input type="text" placeholder="원정 팀 이름" name="awayTeam" id="awayTeam" required>
     </div>
     <div style="flex: 1;">
-      <label for="awayScore"><b>Away Score</b></label>
-      <input type="number" placeholder="Score (Leave empty if not played)" name="awayScore" id="awayScore">
+      <label for="awayScore"><b>원정 팀 점수</b></label>
+      <input type="number" placeholder="점수 (아직 경기를 안했다면 비워두세요)" name="awayScore" id="awayScore">
     </div>
   </div>
   
-  <label for="description"><b>Description / Highlights</b></label>
-  <textarea placeholder="Match summary or notes" name="description" cols="50" rows="5"></textarea>
+  <label for="description"><b>경기 요약 / 하이라이트</b></label>
+  <textarea placeholder="경기 요약이나 메모를 적어주세요" name="description" cols="50" rows="5"></textarea>
 
-  <input type="submit" value="Add Match" class="btn">
+  <input type="submit" value="경기 추가하기" class="btn">
 </form>

@@ -1,4 +1,4 @@
-<a href="/home">&larr; Back to Matches</a>
+<a href="/home">&larr; 경기 목록으로 돌아가기</a>
 
 <div class="match-detail">
   <div class="match-stage" style="font-size: 1.2rem; margin-top: 20px;"><%= data.stage %></div>
@@ -20,11 +20,11 @@
   </div>
 
   <div style="text-align: center; margin-bottom: 30px; font-size: 1.1rem; color: var(--text-secondary);">
-    Date: <%= data.matchDate ? data.matchDate.toLocaleDateString() : 'TBD' %>
+    경기 날짜: <%= data.matchDate ? data.matchDate.toLocaleDateString() : '미정' %>
   </div>
 
   <div style="background: rgba(0,0,0,0.2); padding: 30px; border-radius: var(--border-radius); line-height: 1.6; font-size: 1.1rem;">
-    <h3>Match Highlights & Notes</h3>
-    <p style="white-space: pre-wrap;"><%= data.description || 'No description available for this match.' %></p>
+    <h3>경기 하이라이트 및 요약</h3>
+    <p style="white-space: pre-wrap;"><%= data.description || '이 경기에 대한 설명이 없습니다.' %></p>
   </div>
 </div>

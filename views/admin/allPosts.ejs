@@ -1,6 +1,6 @@
 <div class="admin-title">
   <h2><%= locals.title %></h2>
-  <a href="/add" class="btn">+ Add Match</a>
+  <a href="/add" class="btn">+ 경기 추가</a>
 </div>
 
 <ul class="admin-posts">
@@ -10,10 +10,10 @@
         <strong><%= match.stage %></strong> | <%= match.homeTeam %> vs <%= match.awayTeam %>
       </a>
       <div class="admin-post-controls">
-        <a href="/edit/<%= match._id %>" class="btn">Edit</a>
+        <a href="/edit/<%= match._id %>" class="btn">편집</a>
 
         <form action="/delete/<%= match._id %>?_method=DELETE" method="POST">
-          <input type="submit" value="Delete" class="btn-delete btn">
+          <input type="submit" value="삭제" class="btn-delete btn">
         </form>
       </div>
     </li>

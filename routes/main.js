@@ -8,7 +8,7 @@ router.get(
   ["/", "/home"],
   asynchandler(async (req, res) => {
     const locals = {
-      title: "Champions League Matches",
+      title: "챔피언스리그 경기 결과",
     };
 
     const data = await Match.find({}).sort({ matchDate: 1 });
