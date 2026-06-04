@@ -2,10 +2,7 @@ const mongoose = require("mongoose");
 const Match = require("./models/Match");
 require("dotenv").config();
 
-mongoose.connect(process.env.MONGODB_URI, {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
+mongoose.connect(process.env.MONGODB_URI);
 
 const sampleMatches = [
   {
